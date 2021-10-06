@@ -1,0 +1,22 @@
+<div class="card bg-light mb-3">
+    <div class="card-header">{{title}}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-2" routerLink='/exchange'>Volver</button>
+
+        <form>
+            <div class="form-group">
+                <label for="name">Tipo de cambio</label>
+                <input type="text" name="name" class="form-control" id="name" 
+                   [(ngModel)]="requestUpdate.exchangeRateAmount" />
+                <div class="alert alert-danger" *ngIf="error?.description">
+                    {{error.description}}
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" (click)="update()">
+                    {{'Actualizar'}}
+                </button>
+            </div>
+        </form>
+
+</div>

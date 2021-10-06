@@ -1,0 +1,45 @@
+<div class="divFather">
+  <mat-card class="col-sm-12">
+    <mat-card-header>
+      <mat-card-title>Tipo de cambio</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content class="my-4">
+      <div class="col-sm-12">
+        <form class="my-form">
+          <div class="form-group">
+            <mat-error *ngIf="error">
+              {{ error?.error.message }}
+            </mat-error>
+          </div>        
+          <div class="form-group">
+            <mat-form-field class="full-width-input">
+              <mat-label>Usuario</mat-label>
+              <input matInput placeholder="Usuario" name="user" 
+              [(ngModel)]="loginRequest.username"
+              (keyup.enter) = "keyUpEnter()">
+            </mat-form-field>
+            <div class="alert alert-danger small" *ngIf="error?.username">
+              {{error.username}}
+            </div>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" placeholder="Password" name="password" 
+              [(ngModel)]="loginRequest.password"
+              (keyup.enter) = "keyUpEnter()">
+            </mat-form-field>
+            <div class="alert alert-danger small" *ngIf="error?.password">
+              {{error.password}}
+            </div>
+          </div>
+  
+        </form>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="authenticate()" color="primary">INGRESAR</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
